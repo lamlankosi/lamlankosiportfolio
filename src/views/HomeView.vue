@@ -1,15 +1,15 @@
 <template>
-  <div class="wrapper">
-    <div class="row full-height" id="home">
-      <LandingSection/>
-    </div>
-    <div class="row" id="about">
+ 
+    <!-- <div class="row full-height" id="home"> -->
+      <LandingSection id="home"/>
+      <AboutSection id="about" />
+    <!-- <div class="row" id="about">
       <AboutSection/>
     </div>
     <div class="row" id="education-experience"></div>
     <div class="row" id="projects"></div>
-    <div class="row" id="contact-me"></div>
-  </div>
+    <div class="row" id="contact-me"></div> -->
+
 </template>
 
 <script>

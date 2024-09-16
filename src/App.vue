@@ -3,6 +3,7 @@
     <NavbarComponent/>
     <router-view/>
 
+
 </template>
 
 <script>
