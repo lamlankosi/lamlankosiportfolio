@@ -47,7 +47,7 @@ export default createStore({
           title: "Error",
           text: e.message,
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -60,7 +60,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the about",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -73,7 +73,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the education",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -86,7 +86,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the experience",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -99,7 +99,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the skills",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -112,7 +112,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the testimonials",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
@@ -125,7 +125,7 @@ export default createStore({
           title: "Error",
           text: "failed to fetch the projects",
           icon: "error",
-          timer: 2000
+          timer: 5000
       })
       }
     },
