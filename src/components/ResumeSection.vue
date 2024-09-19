@@ -1,5 +1,5 @@
 <template>
-  <div class="resume">
+  <div class="resume vw-100">
     <div class="row">
       <h2 class="display-2"><strong>Resume</strong></h2>
     <!-- <div class="row gap-3 justify-content-center my-2" v-if="education">
@@ -28,7 +28,7 @@
         <img :src="educ.schoolURL" :alt="educ.schoool" class="profilePic">
         <div class="education-content">
           <h3>{{ educ.school }}</h3>
-          <h4>{{ educ.occupation }}</h4>
+          <p>{{ educ.occupation }}</p>
           <p>{{ educ.year }}</p>
         </div>
       </div>
@@ -77,9 +77,9 @@ onMounted(() => {
   flex-grow: 1;
 }
 */
-.resume {
+/* .resume {
   background-color: black;
-}
+} */
 
 .skills-wrapper {
   overflow: hidden;
@@ -123,8 +123,9 @@ onMounted(() => {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin: 7rem;
+    /* margin: 7rem; */
     width: 90%;
+
 }
   
 .education-class {

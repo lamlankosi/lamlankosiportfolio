@@ -1,78 +1,119 @@
 <template>
-    <div class="contact">
+    <div class="contact vw-100">
         <h1>Contact Me</h1>
-        <div class="contactMe">
-            <div class="contact">
-                <form @submit.prevent="validateAndSubmit">
-                    <form action="https://formspree.io/f/xblrvroz" method="POST">
-                        <label>
-                            Your email:
-                            <input type="email" name="email">
-                        </label>
-                        <label>
-                            Your message:
-                            <textarea name="message"></textarea>
-                        </label>
-                        <!-- your other form fields go here -->
-                        <button type="submit">Send</button>
+        <div class="container">
+            <div class="details">
+                    <p><i class="bi bi-envelope"></i> : lamlanomnganga9@gmail.com</p>
+                    <p><i class="bi bi-github"></i> :lamlankosi</p>
+                    <p><i class="bi bi-linkedin"></i> :Lamla Nomnganga</p>
+                    <p><i class="bi bi-telephone-fill"></i> :072938854</p>
+            </div>
+            <div class="contactMe">
+                
+                <!-- <div class="contact"> -->
+                        <form action="https://formspree.io/f/xblrvroz" method="POST">
+                            <label>
+                                Your email:
+                                <input type="email" name="email">
+                            </label>
+                            <label>
+                                Your message:
+                                <textarea name="message"></textarea>
+                            </label>
+                            <button type="submit">Send</button>
                     </form>
-                </form>
             </div>
 
         </div>
+
     </div>
+
+        <!-- </div> -->
 
 
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            formData: {
-                name: '',
-                email: '',
-                message: ''
-            }
-        };
-    },
-    methods: {
-        validateAndSubmit() {
-            if (!this.formData.name || !this.formData.email || !this.formData.message) {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            // Additional validation logic for email format
-            if (!this.isValidEmail(this.formData.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Proceed with form submission logic
-            this.submitForm();
-        },
-        isValidEmail(email) {
-            // Basic email validation regex
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        },
-        submitForm() {
-            // Logic to submit the form data
-            console.log('Form submitted:', this.formData);
-            // Example: send form data to backend or handle submission
-        }
-    }
-};
-</script>
-
-<style>
-.contact{
-    background: black;
 }
+</script>
+<style scoped>
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
 .contactMe {
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.contact h1 {
+    font-size: 28px;
+   
+    margin-bottom: 20px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-size: 16px;
+    
+}
+
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button[type="submit"] {
+    padding: 10px 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: white;
+    color: black;
+}
+
+/* .contactMe {
     gap: rem;
     /* align-items: center; */
-    /* padding: 2rem; */
+    /* padding: 2rem; 
 }
 
 .content {
@@ -97,15 +138,15 @@ textarea {
 }
 
 
-
-button {
-    /* margin-top: 2rem; */
+*/
+/* button {
+     margin-top: 2rem;
     width: 100px;
     border: 2px solid white;
-}
+} */
 
 @media screen and (max-width: 800px) {
-    .contactMe {
+    /* .contactMe {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
@@ -115,6 +156,7 @@ button {
     .details {
         width: 100%;
         margin-top: 1rem;
-    }
+    } */
 }
+
 </style>

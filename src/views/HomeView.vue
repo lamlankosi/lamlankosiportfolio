@@ -1,5 +1,22 @@
 <template>
- 
+    <!-- <div class="container">
+      <section class="row vh-100 vw-100" id="landing">
+        <landingSection/>
+      </section>
+      <section class="row vh-100 vw-100" id="about">
+        <AboutSection/>
+      </section>
+      <section class="row vh-100 vw-100" id="resume">
+        <ResumeSection/>
+      </section>
+      <section class="row vh-100 vw-100" id="projects">
+        <ProjectsSection/>
+      </section>
+      <section class="row vh-100 vw-100" id="contact">
+        <ContactSection/>
+      </section>
+    </div> -->
+
     <!-- <div class="row full-height" id="home"> -->
       <LandingSection id="home"/>
       <AboutSection id="about" />
@@ -32,3 +49,7 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+</style>

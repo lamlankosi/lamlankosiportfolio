@@ -1,6 +1,6 @@
 <template>
 
-<nav class="navbar navbar-expand-lg sticky-top bg-success" id="navbar">
+<nav class="navbar navbar-expand-lg sticky-top" id="navbar">
   <div class="container-fluid">
     <router-link class="navbar-brand" to="/">
         <img src="https://lamlankosi.github.io/project_images/Images/LN_logo.png" alt="logo">
@@ -23,7 +23,7 @@
           <a class="nav-link" href="#projects">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contactMe">Contact Me</a>
+          <a class="nav-link" href="#contact">Contact Me</a>
         </li>
         </ul>
     </div>
@@ -37,4 +37,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.navbar{
+  background-color: #5c5c5c;
+}
+</style>

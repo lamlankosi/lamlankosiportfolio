@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home vw-100">
       <div class="container">
           <div class="greeting">Hi there👋,</div>
           <h1 class="name animated-greeting">My name is <span class="highlight">Lamlankosi Nomnganga</span></h1>
@@ -48,7 +48,7 @@ height: 100vh;
 display: flex;
 align-items: center;
 justify-content: center;
-background-color: #5c5c5c;
+/* background-color: #5c5c5c; */
 color: white;
 }
 
@@ -92,13 +92,13 @@ margin-bottom: 0.5rem;
 }
 
 .btn {
-background-color: #e9c46a;
-color: #000;
-padding: 10px 20px;
-text-decoration: none;
-border: none;
-border-radius: 5px;
-transition: background-color 0.3s;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {

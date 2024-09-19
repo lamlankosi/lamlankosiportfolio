@@ -4,7 +4,7 @@
     <div class="info">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12 text-center">
-          <img src="https://lamlankosi.github.io/project_images/Images/20240422_094754.jpg" alt="Profile" class="img-fluid w-50 profile-img">
+          <img src="https://lamlankosi.github.io/project_images/Images/20240422_094754.jpg" alt="Profile" class="img-fluid w-50 profile-img" loading="lazy">
         </div>
         <div class="col-lg-6 col-md-12 text-center text-lg-start">
           <p v-if="about" id="about">{{ about[0] }}</p>
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .about {
   padding: 2rem;
-  background-color: #666;
+  /* background-color: #666; */
 }
 
 .img-fluid {

@@ -12,6 +12,11 @@
                 <template #cardBody>
                     <p class="lead">{{ project.description }}</p>
                     <p class="lead">{{ project.status }}</p>
+                    <div class="links">
+                        <a :href="project.vercel" target="_blank" v-if="project.vercel"><i
+                                class="bi bi-file-earmark-fill"></i></a>
+                        <a :href="project.github" target="_blank" v-if="project.github"><i class="bi bi-github"></i></a>
+                    </div>
                 </template>
             </Card>
         </div>
@@ -38,9 +43,18 @@ onMounted(() => {
 <style scoped>
 .card {
     width: 24rem;
+  background-color: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(8px); 
+  color: white;
 }
 
-.projects {
+/* .projects {
     background-color: blue;
+} */
+
+@media screen and (max-width: 800px) {
+    .card {
+        width: 18rem;
+    }
 }
 </style>
