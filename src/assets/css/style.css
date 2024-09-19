@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 /* APP */
 #app {
     font-family: inika, Helvetica, Arial, sans-serif;
@@ -50,4 +51,14 @@ img[alt="logo"] {
 }
 .footer {
     background-color: #5c5c5c;
+}
+
+::-webkit-scrollbar{
+    display: none;
+   }
+
+   @media screen and (max-width: 320) {
+    .wrapper{
+        width: 100%;
+    }
 }

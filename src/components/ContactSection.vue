@@ -1,5 +1,5 @@
 <template>
-    <div class="contact vw-100">
+    <div class="contact">
         <h1>Contact Me</h1>
         <div class="container">
             <div class="details">
@@ -38,6 +38,8 @@
 export default {
 }
 </script>
+
+
 <style scoped>
 .container{
     display: flex;
@@ -146,18 +148,11 @@ textarea {
     border: 2px solid white;
 } */
 
-@media screen and (max-width: 800px) {
-    /* .contactMe {
+@media screen and (max-width: 700px) {
+    .container{
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
     }
-
-    .details {
-        width: 100%;
-        margin-top: 1rem;
-    } */
 }
 
 </style>

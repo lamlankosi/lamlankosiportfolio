@@ -1,34 +1,36 @@
 <template>
-    <!-- <div class="container">
-      <section class="row vh-100 vw-100" id="landing">
-        <landingSection/>
-      </section>
-      <section class="row vh-100 vw-100" id="about">
-        <AboutSection/>
-      </section>
-      <section class="row vh-100 vw-100" id="resume">
-        <ResumeSection/>
-      </section>
-      <section class="row vh-100 vw-100" id="projects">
-        <ProjectsSection/>
-      </section>
-      <section class="row vh-100 vw-100" id="contact">
-        <ContactSection/>
-      </section>
-    </div> -->
 
     <!-- <div class="row full-height" id="home"> -->
-      <LandingSection id="home"/>
+      <!-- <LandingSection id="home"/>
       <AboutSection id="about" />
       <ResumeSection id="resume"/>
       <ProjectsSection id="projects"/>
-      <ContactSection id="contact"/>
+      <ContactSection id="contact"/> -->
     <!-- <div class="row" id="about">
       <AboutSection/>
     </div>
     <div class="row" id="education-experience"></div>
     <div class="row" id="projects"></div>
     <div class="row" id="contact-me"></div> -->
+
+    <div class="container">
+      <section class="row full-height" id="landing">
+        <LandingSection/>
+      </section>
+      <section class="row full-height" id="about">
+        <AboutSection/>
+      </section>
+      <section class="row full-height" id="resume">
+        <ResumeSection/>
+      </section>
+      <section class="row full-height" id="projects">
+        <ProjectsSection/>
+      </section>
+      <section class="row full-height" id="contact">
+        <ContactSection/>
+      </section>
+
+    </div>
 
 </template>
 

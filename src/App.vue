@@ -1,9 +1,11 @@
 <template>
-
+  <div class="wrapper">
     <NavbarComponent/>
-  
-    <router-view/>
+    <main class="container-fluid">
+      <router-view/>
+    </main>
     <Footer/>
+  </div>
 
 
 </template>

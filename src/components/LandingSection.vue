@@ -1,5 +1,5 @@
 <template>
-  <div class="home vw-100">
+  <div class="home">
       <div class="container">
           <div class="greeting">Hi there👋,</div>
           <h1 class="name animated-greeting">My name is <span class="highlight">Lamlankosi Nomnganga</span></h1>
