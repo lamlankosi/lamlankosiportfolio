@@ -3,6 +3,7 @@
         <h1>Contact Me</h1>
         <div class="container">
             <div class="details">
+                <p><i class="bi bi-pin-map-fill"></i>: Cape Town, Western Cape</p>
                     <p><i class="bi bi-envelope"></i> : lamlanomnganga9@gmail.com</p>
                     <p><i class="bi bi-github"></i> :lamlankosi</p>
                     <p><i class="bi bi-linkedin"></i> :Lamla Nomnganga</p>
