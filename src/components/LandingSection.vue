@@ -6,8 +6,9 @@
           <p class="title">I am a <span v-if="title">{{ title }}</span> and a passionate Gamer</p>
           <a href="#about" class="btn btn-success">Get to know me</a>
           <div class="social-media">
-              <i class="bi bi-linkedin"></i>
-              <i class="bi bi-github"></i>
+              <a href="https://www.linkedin.com/in/lamlankosi-nomnganga-59b500268/" target="#"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/lamlankosi" target="#">              <i class="bi bi-github"></i></a>
+
           </div>
       </div>
   </div>
