@@ -123,7 +123,7 @@ onMounted(() => {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    /* margin: 7rem; */
+    margin: 5rem; 
     width: 90%;
 
 }

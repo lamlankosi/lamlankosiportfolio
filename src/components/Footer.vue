@@ -28,9 +28,6 @@ export default {
     justify-content: center;
     margin-top:1rem;
 }
-.contact{
-    background-color: black;
-}
 
 @media screen and (max-width: 800px) {
     .details{

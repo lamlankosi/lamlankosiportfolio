@@ -122,6 +122,9 @@ button[type="submit"]:hover {
 .content {
     width: 50%;
 }
+.details{
+    align-self: center;
+}
 
 
 
