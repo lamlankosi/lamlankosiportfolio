@@ -56,6 +56,8 @@
         </div>
 
     </div>
+
+    <a href="https://drive.google.com/file/d/1T8KCaNuFEtM4sQzYIsab0gDGyxOHnCM8/view?usp=drive_link" class="btn btn-light" target="_blank"><i class="bi bi-download"></i></a>
   </div>
 </template>
 
