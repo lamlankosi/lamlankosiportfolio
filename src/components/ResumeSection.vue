@@ -30,37 +30,60 @@
           <h3>{{ educ.school }}</h3>
           <p>{{ educ.occupation }}</p>
           <p>{{ educ.year }}</p>
+          <a :href="educ.certificate" target="_blank" class="btn"><i class="bi bi-patch-check"></i></a>
         </div>
       </div>
     </div>
   </div>
+  <div class="experience">
+        <div class="row">
+            <h2 class="display-2"><strong>Experience</strong></h2>
+        </div>
+        <div class="row gap-2 justify-content-center my-2" v-if="experience">
+            <Card v-for="experience in experience" :key="experience.companyName">
+                <template #cardHeader>
+                    <h5>{{ experience.companyName }}</h5>
+                    <img class="img-fluid" :src="experience.schoolURL" :alt="experience.companyName">
+                </template>
+                <template #cardBody>
+                    <p class="lead">{{ experience.occupation }}</p>
+                    <p class="lead">{{ experience.year }}</p>
+                </template>
+            </Card>
+        </div>
+        <div v-else>
+            <Spinner />
+        </div>
+
+    </div>
   </div>
 </template>
 
 <script setup>
 import { useStore } from 'vuex'
 import { computed, onMounted } from 'vue'
-// import Card from '@/components/Card.vue'
+import Card from '@/components/Card.vue'
 
 const store = useStore()
 const education = computed(() => store.state.education)
-
+const experience = computed(()=> store.state.experience)
 
 onMounted(() => {
   store.dispatch('fetchEducation')
+  store.dispatch('fetchExperience')
 
 })
 </script>
 
 <style scoped>
-/* .card {
+ .card {
   width: 20rem;
   background-color: #404040;
   box-shadow: 5px 5px #888888;
   color: white;
   padding: 1rem;
 }
-
+/*
 .card-body {
   display: flex;
   align-items: flex-start;

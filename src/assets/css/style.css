@@ -49,15 +49,24 @@ img[alt="logo"] {
 .navbar {
     background-color: #5c5c5c;
 }
+
+/* ======== FOOTER ===== */
 .footer {
     background-color: #5c5c5c;
+    color: white;
+    text-align: center;
+    margin-top: auto; 
 }
 
+/* Ensuring main content takes available space*/
+.container-fluid {
+    flex: 1;  
+}
 ::-webkit-scrollbar{
     display: none;
    }
 
-   @media screen and (max-width: 320) {
+   @media screen and (max-width: 320px) {
     .wrapper{
         width: 100%;
     }
