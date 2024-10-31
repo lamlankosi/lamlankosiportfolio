@@ -51,7 +51,9 @@ onMounted(() => {
 /* .projects {
     background-color: blue;
 } */
-
+.img-fluid{
+    filter: grayscale(100%);
+}
 @media screen and (max-width: 800px) {
     .card {
         width: 18rem;
