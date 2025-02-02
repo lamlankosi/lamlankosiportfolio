@@ -43,7 +43,7 @@
             <Card v-for="experience in experience" :key="experience.companyName">
                 <template #cardHeader>
                     <h5>{{ experience.companyName }}</h5>
-                    <img class="img-fluid" :src="experience.schoolURL" :alt="experience.companyName">
+                    <img class="profilePic" :src="experience.schoolURL" :alt="experience.companyName">
                 </template>
                 <template #cardBody>
                     <p class="lead">{{ experience.occupation }}</p>
