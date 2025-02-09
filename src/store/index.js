@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 import Swal from 'sweetalert2/dist/sweetalert2'
-const portfolioURL = 'https://lamlankosi.github.io/VueData/data/'
+const portfolioURL = 'https://lamlankosi.github.io/portfolioData/data/'
 export default createStore({
   state: {
     jobTitle: null,
@@ -11,6 +11,8 @@ export default createStore({
     skills: null,
     testimonials: null,
     projects: null,
+    project:null,
+    certificates: null
   },
   getters: {
   },
@@ -35,6 +37,9 @@ export default createStore({
     },
     setProjects(state, value){
       state.projects = value
+    },
+    setCertificates(state, value){
+      state.certificates = value
     }
   },
   actions: {
@@ -68,6 +73,19 @@ export default createStore({
       try{
         let {education} = await (await axios.get(portfolioURL)).data
          context.commit("setEducation" , education)
+      } catch(e){
+        Swal.fire({
+          title: "Error",
+          text: "failed to fetch the education",
+          icon: "error",
+          timer: 5000
+      })
+      }
+    },
+    async fetchCertificates(context){
+      try{
+        let {certificates} = await (await axios.get(portfolioURL)).data
+         context.commit("setCertificates" , certificates)
       } catch(e){
         Swal.fire({
           title: "Error",

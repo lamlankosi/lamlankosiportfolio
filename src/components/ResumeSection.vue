@@ -1,195 +1,308 @@
 <template>
-  <div class="resume vw-100">
-    <div class="row">
-      <h2 class="display-2"><strong>Resume</strong></h2>
-    <!-- <div class="row gap-3 justify-content-center my-2" v-if="education">
-      <Card v-for="educ in education" :key="educ.school">
-        <template #cardHeader>
-          <div class="card-header">
-            <h5 class="card-title"><strong>{{ educ.school }}</strong></h5>
-          </div>
-        </template>
-        <template #cardBody>
-          <div class="card-body d-flex align-items-start">
-            <img :src="educ.schoolURL" :alt="educ.school" class="img-fluid card-image" />
-            <div class="card-content ms-3">
-              <p>{{ educ.occupation }}</p>
-              <p class="lead">{{ educ.year }}</p>
-            </div>
-          </div>
-        </template>
-      </Card>
+  <div class="resume-container">
+    <h2 class="title fade-in">Education & Experience</h2>
+
+    <div class="tabs fade-in" style="animation-delay: 0.3s">
+      <button
+        v-for="tab in tabs"
+        :key="tab"
+        @click="selectedTab = tab"
+        :class="{ active: selectedTab === tab }"
+      >
+        {{ tab }}
+      </button>
     </div>
-    <div v-else>
-      <Spinner />
-    </div> -->
-    <div class="education justify-content-center my-2">
-      <div v-for="educ in education" :key="educ.school" class="education-class">
-        <img :src="educ.schoolURL" :alt="educ.schoool" class="profilePic">
-        <div class="education-content">
-          <h3>{{ educ.school }}</h3>
-          <p>{{ educ.occupation }}</p>
-          <p>{{ educ.year }}</p>
-          <a :href="educ.certificate" target="_blank" class="btn"><i class="bi bi-patch-check"></i></a>
+
+    <div v-if="selectedTab === 'Education'" class="grid fade-in" style="animation-delay: 0.6s">
+      <div v-for="educ in education" :key="educ.school" class="card">
+        <img :src="educ.schoolURL" :alt="educ.school" class="icon" />
+        <h3>{{ educ.school }}</h3>
+        <p class="year">{{ educ.year }}</p>
+        <p class="description">{{ educ.occupation }}</p>
+        <a :href="educ.certificate" target="blank" class="btn btn-outline-dark" >
+          <i class="bi bi-eye"></i> view
+    </a>
+      </div>
+    </div>
+
+    <div v-if="selectedTab === 'Experience'" class="grid fade-in" style="animation-delay: 0.9s">
+      <div v-for="exp in experience" :key="exp.companyName" class="card">
+        <img :src="exp.schoolURL" :alt="exp.companyName" class="icon" />
+        <h3>{{ exp.companyName }}</h3>
+        <p class="year">{{ exp.year }}</p>
+        <p class="description">{{ exp.occupation }}</p>
+      </div>
+    </div>
+
+    <div v-if="selectedTab === 'Badges'" class="grid fade-in" style="animation-delay: 1.2s">
+      <div v-for="cert in filteredBadges" :key="cert.name" class="badge-card">
+        <img :src="cert.badgeURL" :alt="cert.name" class="img" />
+      </div>
+    </div>
+
+    <div v-if="selectedTab === 'Certificates'" class="certificates-grid fade-in" style="animation-delay: 1.5s">
+      <div v-for="cert in certificates" :key="cert.name" class="certificate-card">
+        <img :src="cert.certificateIMG" :alt="cert.name" class="certificate-image" />
+        <h3 class="certificate-title">{{ cert.name }}</h3>
+        <div class="button-group">
+          <button class="download-btn"><i class="bi bi-box-arrow-down"> Download </i></button>
+          <button class="view-btn"><i class="bi bi-eye"></i> View</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="experience">
-        <div class="row">
-            <h2 class="display-2"><strong>Experience</strong></h2>
-        </div>
-        <div class="row gap-2 justify-content-center my-2" v-if="experience">
-            <Card v-for="experience in experience" :key="experience.companyName">
-                <template #cardHeader>
-                    <h5>{{ experience.companyName }}</h5>
-                    <img class="profilePic" :src="experience.schoolURL" :alt="experience.companyName">
-                </template>
-                <template #cardBody>
-                    <p class="lead">{{ experience.occupation }}</p>
-                    <p class="lead">{{ experience.year }}</p>
-                </template>
-            </Card>
-        </div>
-        <div v-else>
-            <Spinner />
-        </div>
-
-    </div>
-
-    <a href="https://drive.google.com/file/d/1T8KCaNuFEtM4sQzYIsab0gDGyxOHnCM8/view?usp=drive_link" class="btn btn-light" target="_blank"><i class="bi bi-download"></i></a>
-  </div>
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
-import { computed, onMounted } from 'vue'
-import Card from '@/components/Card.vue'
+import { ref, computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
 
-const store = useStore()
-const education = computed(() => store.state.education)
-const experience = computed(()=> store.state.experience)
+const store = useStore();
+const selectedTab = ref('Education');
+const tabs = ['Education', 'Experience', 'Badges', 'Certificates'];
+
+const education = computed(() => store.state.education);
+const experience = computed(() => store.state.experience);
+const certificates = computed(() => store.state.certificates);
+
+const filteredBadges = computed(() => {
+  return certificates.value.filter(cert => cert.badgeURL && cert.badgeURL.trim() !== "");
+});
 
 onMounted(() => {
-  store.dispatch('fetchEducation')
-  store.dispatch('fetchExperience')
-
-})
+  store.dispatch('fetchEducation');
+  store.dispatch('fetchExperience');
+  store.dispatch('fetchCertificates');
+});
 </script>
 
 <style scoped>
- .card {
-  width: 20rem;
-  background-color: #404040;
-  box-shadow: 5px 5px #888888;
-  color: white;
-  padding: 1rem;
-}
-/*
-.card-body {
-  display: flex;
-  align-items: flex-start;
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.card-image {
-  width: 50px;
-  height: 50px;
+/* Apply the fade-in animation */
+.fade-in {
+  opacity: 0; /* Start hidden */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* General styling */
+.resume-container {
+  margin: auto;
+  text-align: center;
+  color: #e0e0e0; /* Light grey text */
+  padding: 2rem;
+
+  background: #1a1a1a; /* Dark background */
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff; /* White title */
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  color: #a0a0a0; /* Light grey */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.tabs button:hover {
+  color: #ffffff; /* White on hover */
+}
+
+.tabs button.active {
+  border-bottom: 3px solid #ffffff; /* White underline */
+  color: #ffffff; /* White text */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #2c2c2c; /* Dark grey */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  object-fit: cover;
+  margin-bottom: 10px;
 }
 
-.card-content {
-  flex-grow: 1;
+h3 {
+  color: #ffffff; /* White text */
+  font-size: 1.4rem;
 }
-*/
-/* .resume {
-  background-color: black;
-} */
 
-.skills-wrapper {
-  overflow: hidden;
+.year {
+  font-size: 1rem;
+  color: #a0a0a0; /* Light grey */
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #c0c0c0; /* Light grey */
+}
+
+/* Certificates Grid */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+/* Certificate Card */
+.certificate-card {
+  background: #2c2c2c; /* Dark grey */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Certificate Image */
+.certificate-image {
   width: 100%;
-  position: relative;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #3a3a3a; /* Medium grey border */
 }
 
-.skills {
-  display: flex;
-  animation: scroll 20s linear infinite;
+/* Certificate Title */
+.certificate-title {
+  color: #ffffff; /* White text */
+  font-size: 1.4rem;
+  margin-top: 10px;
 }
 
-.skill {
+/* Button Group */
+.button-group {
+  margin-top: 15px;
   display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Buttons */
+.download-btn, .view-btn {
+  background: #1e1e1e; /* Dark grey */
+  color: #ffffff; /* White text */
+  border: 1px solid #3a3a3a; /* Medium grey border */
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Hover Effect */
+.download-btn:hover, .view-btn:hover {
+  background: #2a2a2a; /* Medium grey */
+  transform: scale(1.05);
+}
+
+/* Click Effect */
+.download-btn:active, .view-btn:active {
+  transform: scale(0.98);
+}
+
+/* Badge Card */
+.badge-card {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin-right: 20px;
-  flex-shrink: 0;
+  background: #2c2c2c; /* Dark grey */
+  border-radius: 12px;
+  padding: 10px;
+  transition: transform 0.2s ease-in-out;
 }
 
-.skill img {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-} 
+.badge-card:hover {
+  transform: scale(1.05);
+}
 
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
+.img {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  border: 1px solid #3a3a3a; /* Medium grey border */
+  padding: 8px;
+  background-color: #1a1a1a; /* Dark grey */
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all 0.2s ease-in-out;
   }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-#CV {
-  background-color: black;
-  color: white;
-}
-
-.education{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin: 5rem; 
-    width: 90%;
-
-}
   
-.education-class {
-    gap: 1rem;
-    padding: 1rem;
-    background-color:#404040;
-    box-shadow:  5px 5px #888888;
+.btn-outline-dark {
+    border: 2px solid #3a3a3a; /* Medium grey border */
+    color: #e0e0e0; /* Light grey text */
+  }
+  
+  .btn-outline-dark:hover {
+    background: #3a3a3a; /* Medium grey */
+    color: #ffffff; /* White text */
+    transform: scale(1.05);
+  }
 
-    
-}
-.education-content{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-.profilePic {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.education-content {
-    display: flex;
-    flex-direction: column;
-}
-.education-content h3, .education-content h4 {
-    margin: 0;}
-.education-content p {
-    margin-top: 0.5rem;
-}
-img{
-  display: block;
-  max-width: 100%;
-}
 @media (max-width: 768px) {
-  .education{
-    grid-template-columns: 1fr;
-    margin:1rem;
-    justify-content: center;
+  .resume-container {
+    padding: 1.5rem;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tabs button {
+    padding: 8px;
   }
 }
 </style>
