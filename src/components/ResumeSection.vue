@@ -30,7 +30,7 @@
         <img :src="exp.schoolURL" :alt="exp.companyName" class="icon" />
         <h3>{{ exp.companyName }}</h3>
         <p class="year">{{ exp.year }}</p>
-        <p class="description">{{ exp.occupation }}</p>
+        <p class="description">{{ exp.responsibility }}</p>
       </div>
     </div>
 

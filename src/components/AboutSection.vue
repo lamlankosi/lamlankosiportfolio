@@ -12,7 +12,7 @@
             {{ about[0] }}
           </p>
           <div class="buttons fade-in" style="animation-delay: 0.9s">
-            <button class="btn download">Download CV</button>
+            <a href="https://drive.google.com/file/d/1S4CyDVEmJR66DsLNury0ZgTfO6AqmWm-/view?usp=sharing" class="btn download">Download CV</a>
             <a href="#projects" class="btn projects">View Projects</a>
           </div>
         </div>
@@ -62,8 +62,8 @@
 export default {
   data() {
     return {
-      projects: 11,
-      certificates: 11,
+      projects: 6,
+      certificates: 8,
     };
   },
   computed: {
