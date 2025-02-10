@@ -12,7 +12,7 @@
             {{ about[0] }}
           </p>
           <div class="buttons fade-in" style="animation-delay: 0.9s">
-            <a href="https://drive.google.com/file/d/1S4CyDVEmJR66DsLNury0ZgTfO6AqmWm-/view?usp=sharing" class="btn download">Download CV</a>
+            <a href="https://drive.google.com/file/d/1S4CyDVEmJR66DsLNury0ZgTfO6AqmWm-/view?usp=sharing" target="_blank" class="btn download">Download CV</a>
             <a href="#projects" class="btn projects">View Projects</a>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default {
 
 .profile-img {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  /* border-radius: 50%; */
   max-width: 100%;
   height: auto;
 }
