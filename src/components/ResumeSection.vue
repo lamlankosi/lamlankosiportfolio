@@ -292,7 +292,28 @@ h3 {
     color: #ffffff; /* White text */
     transform: scale(1.05);
   }
+  .card {
+  background: #2c2c2c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  position: relative;
+}
 
+.content {
+  flex-grow: 1;
+}
+
+.button-group, .btn-outline-dark {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 768px) {
   .resume-container {
     padding: 1.5rem;

@@ -142,7 +142,34 @@
     color: #ffffff; /* White text */
     transform: scale(1.05);
   }
-  
+  .project-image {
+  width: 100%;
+  height: 180px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensures images maintain aspect ratio */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.project-card .card-body {
+  flex-grow: 1; /* Makes content evenly distributed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  width: 22rem; /* Ensures consistent width */
+  min-height: 100%; /* Ensures all cards stretch equally */
+  background: #2c2c2c;
+  color: #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+
   /* Responsive Design */
   @media screen and (max-width: 800px) {
     .project-card {
