@@ -46,8 +46,8 @@
         <img :src="cert.certificateIMG" :alt="cert.name" class="certificate-image" />
         <h3 class="certificate-title">{{ cert.name }}</h3>
         <div class="button-group">
-          <button class="download-btn"><i class="bi bi-box-arrow-down"> Download </i></button>
-          <button class="view-btn"><i class="bi bi-eye"></i> View</button>
+          <a :href="cert.certificateURL" class="btn-download" target="_blank"><i class="bi bi-box-arrow-down"> Download </i></a>
+          <a :href="cert.certificateURL" class="btn-view" target="_blank"><i class="bi bi-eye"></i> View</a>
         </div>
       </div>
     </div>
@@ -231,7 +231,7 @@ h3 {
 }
 
 /* Buttons */
-.download-btn, .view-btn {
+.btn-download, .btn-view {
   background: #1e1e1e; /* Dark grey */
   color: #ffffff; /* White text */
   border: 1px solid #3a3a3a; /* Medium grey border */
@@ -245,13 +245,13 @@ h3 {
 }
 
 /* Hover Effect */
-.download-btn:hover, .view-btn:hover {
+.btn-download:hover, .btn-view:hover {
   background: #2a2a2a; /* Medium grey */
   transform: scale(1.05);
 }
 
 /* Click Effect */
-.download-btn:active, .view-btn:active {
+.btn-download:active, .btn-view:active {
   transform: scale(0.98);
 }
 
