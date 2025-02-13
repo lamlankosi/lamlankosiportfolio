@@ -6,7 +6,7 @@
           <p><i class="bi bi-pin-map-fill"></i> Cape Town, Western Cape</p>
           <p><i class="bi bi-envelope"></i> lamlanomnganga9@gmail.com</p>
           <p><i class="bi bi-github"></i> <a href="https://github.com/lamlankosi" target="_blank">lamlankosi</a></p>
-          <p><i class="bi bi-linkedin"></i> <a href="https://linkedin.com/in/lamla-nomnganga" target="_blank">Lamla Nomnganga</a></p>
+          <p><i class="bi bi-linkedin"></i> <a href="https://linkedin.com/in/lamlankosi-nomnganga-59b500268" target="_blank">Lamlankosi Nomnganga</a></p>
           <p><i class="bi bi-telephone-fill"></i> 072 938 854</p>
         </div>
   
