@@ -241,5 +241,8 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
   }
+  .row{
+    flex-direction: column-reverse;
+  }
 }
 </style>
