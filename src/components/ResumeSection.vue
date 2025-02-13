@@ -19,9 +19,9 @@
         <h3>{{ educ.school }}</h3>
         <p class="year">{{ educ.year }}</p>
         <p class="description">{{ educ.occupation }}</p>
-        <a :href="educ.certificate" target="blank" class="btn btn-outline-dark" >
-          <i class="bi bi-eye"></i> view
-    </a>
+        <a v-if="educ.certificate && educ.certificate.trim() !== ''" :href="educ.certificate" target="_blank" class="btn btn-outline-dark">
+          <i class="bi bi-eye"></i> View
+        </a>
       </div>
     </div>
 
@@ -42,7 +42,7 @@
     </div>
 
     <div v-if="selectedTab === 'Certificates'" class="certificates-grid fade-in" style="animation-delay: 1.5s">
-      <div v-for="cert in certificates" :key="cert.name" class="certificate-card">
+      <div v-for="cert in filteredCertificates" :key="cert.name" class="certificate-card">
         <img :src="cert.certificateIMG" :alt="cert.name" class="certificate-image" />
         <h3 class="certificate-title">{{ cert.name }}</h3>
         <div class="button-group">
@@ -70,12 +70,17 @@ const filteredBadges = computed(() => {
   return certificates.value.filter(cert => cert.badgeURL && cert.badgeURL.trim() !== "");
 });
 
+const filteredCertificates = computed(() => {
+  return certificates.value.filter(cert => cert.certificateIMG && cert.certificateIMG.trim() !== "");
+});
+
 onMounted(() => {
   store.dispatch('fetchEducation');
   store.dispatch('fetchExperience');
   store.dispatch('fetchCertificates');
 });
 </script>
+
 
 <style scoped>
 /* Fade-in animation */
